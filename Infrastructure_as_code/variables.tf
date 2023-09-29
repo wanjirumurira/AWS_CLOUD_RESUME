@@ -12,7 +12,4 @@ variable "bucket_name" {
     type = string
 }
 
-variable "DynamoDB_table" {
-    description = "My DynamoDB Table"
-    type = string
-}
+

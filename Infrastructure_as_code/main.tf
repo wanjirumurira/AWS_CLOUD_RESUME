@@ -104,7 +104,7 @@ resource "aws_cloudfront_distribution" "distribution" {
 }
 
 resource "aws_dynamodb_table" "visitor_table" {
-  name = var.DynamoDB_table
+  name = "visitor_counter"
   billing_mode = "PAY_PER_REQUEST"
   hash_key =  "user_id"
 
@@ -134,3 +134,76 @@ resource "aws_api_gateway_method" "getVisitor" {
   http_method   = "GET"
   authorization = "NONE"
 }
+
+resource "aws_lambda_function" "lambda_function" {
+  function_name = "lambda_function"
+  filename         = data.archive_file.lambda_zip_file.output_path
+  source_code_hash = data.archive_file.lambda_zip_file.output_base64sha256
+  handler          = "lambda_handler"
+  role             = aws_iam_role.iam_for_lambda.arn
+  runtime          = "python3.10"
+}
+
+
+
+data "archive_file" "lambda_zip_file" {
+  type        = "zip"
+  source_file = "../lambda_function/lambda_function.py"  # Relative path to Lambda function code
+  output_path = "${path.module}/my_lambda_function.zip"
+}
+
+
+resource "aws_iam_role" "iam_for_lambda" {
+  assume_role_policy  = jsonencode({
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Action": "sts:AssumeRole",
+            "Principal": {
+              "Service": "lambda.amazonaws.com"
+            },
+            "Effect": "Allow",
+            "Sid": "",
+          }
+        ]
+      })
+
+      }
+
+resource "aws_iam_role_policy" "dynamodb_lambda_policy" {
+  name   = "lambda-dynamodb-policy"
+  role   = aws_iam_role.iam_for_lambda.id
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "dynamodb:BatchGetItem",
+          "dynamodb:GetItem",
+          "dynamodb:Query",
+          "dynamodb:Scan",
+          "dynamodb:BatchWriteItem",
+          "dynamodb:PutItem",
+          "dynamodb:UpdateItem"
+        ],
+        "Resource": "${aws_dynamodb_table.visitor_table.arn}"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        #"Resource": "arn:aws:logs:${var.aws_region}:${var.aws_account_id}:*"
+        "Resource": "arn:aws:logs:*:*:*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": "logs:CreateLogGroup",
+        "Resource": "*"
+      }
+    ]
+  })
+}
+
