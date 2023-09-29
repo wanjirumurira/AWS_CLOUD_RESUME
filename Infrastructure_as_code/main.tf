@@ -62,3 +62,75 @@ resource "aws_s3_bucket_website_configuration" "my_resume_website" {
   
  }
 
+resource "aws_cloudfront_distribution" "distribution" {
+  enabled         = true
+  is_ipv6_enabled = true
+
+  origin {
+    domain_name = aws_s3_bucket_website_configuration.my_resume_website.website_endpoint
+    origin_id   = aws_s3_bucket.hosting_bucket.bucket_regional_domain_name
+
+    custom_origin_config {
+      http_port                = 80
+      https_port               = 443
+      origin_keepalive_timeout = 5
+      origin_protocol_policy   = "http-only"
+      origin_read_timeout      = 30
+      origin_ssl_protocols = [
+        "TLSv1.2",
+      ]
+    }
+  }
+
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+      locations        = []
+    }
+  }
+
+  default_cache_behavior {
+    cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = true
+    allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods         = ["GET", "HEAD"]
+    target_origin_id       = aws_s3_bucket.hosting_bucket.bucket_regional_domain_name
+  }
+}
+
+resource "aws_dynamodb_table" "visitor_table" {
+  name = var.DynamoDB_table
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key =  "user_id"
+
+  attribute {
+    name = "user_id"
+    type = "S"
+  }
+}
+
+resource "aws_api_gateway_rest_api" "visitor_apigw" {
+    name = "visitor_api"
+    description = "Visitor API Gateway"
+    endpoint_configuration {
+      types = ["REGIONAL"]
+    } 
+}
+
+resource "aws_api_gateway_resource" "visitor" {
+  rest_api_id = aws_api_gateway_rest_api.visitor_apigw.id
+  parent_id = aws_api_gateway_rest_api.visitor_apigw.root_resource_id
+  path_part = "visitor"
+}
+
+resource "aws_api_gateway_method" "getVisitor" {
+  rest_api_id   = aws_api_gateway_rest_api.visitor_apigw.id
+  resource_id   = aws_api_gateway_resource.visitor.id
+  http_method   = "GET"
+  authorization = "NONE"
+}
