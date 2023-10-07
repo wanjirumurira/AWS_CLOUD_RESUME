@@ -12,4 +12,10 @@ variable "bucket_name" {
     type = string
 }
 
+variable "accountId" {
+    description = "Account ID"
+    type = number
+  
+}
+
 

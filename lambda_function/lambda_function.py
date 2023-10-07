@@ -1,16 +1,14 @@
 import boto3
 from datetime import datetime
-import pytz 
+import pytz
 import json
 
-
-def lambda_handler(event:any, context:any):
-    
-    #create a dynamodb table
+def lambda_handler(event, context):
+    # Create a DynamoDB table
     dynamodb = boto3.resource("dynamodb")
     table = dynamodb.Table("visitor_counter")
- 
-     # Query the DynamoDB table to get the current maximum user ID
+
+    # Query the DynamoDB table to get the current maximum user ID
     response = table.scan(Select="COUNT")
     current_count = response["Count"]
 
@@ -20,16 +18,29 @@ def lambda_handler(event:any, context:any):
     time_visited = datetime.now(eat_timezone).strftime("%Y-%m-%d %H:%M")
 
     item = {
-        "user_id": "user"+ str(visit_count),
+        "user_id": "user" + str(visit_count),
         "count": visit_count,
         "time": time_visited
     }
-    
-    #Put the new visit count into the table
-    table.put_item(Item=item)
-    message = f"Hello!This page has been visited {visit_count} times." 
-    results = {"Message" : message,
-            "count": visit_count}
-    return results
 
-#Compress-Archive -Path .\lambda_function.py, .\venv\lib\site-packages\* -DestinationPath my_lambda_function.zip
+    # Put the new visit count into the table
+    table.put_item(Item=item)
+
+    # Response dictionary
+    response_data = {
+        "statusCode": 200,
+        "headers": {
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
+        "body": json.dumps({
+            "message": "Hello! This page has been visited {} times.".format(visit_count),
+            "count": visit_count
+        }),
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+
+    return response_data

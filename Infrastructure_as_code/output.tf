@@ -4,3 +4,6 @@ output "website_url"{
 
 }
 
+output "base_url" {
+  value = aws_api_gateway_deployment.visitor_deployment.invoke_url
+}
