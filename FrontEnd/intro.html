@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>wanjiru Resume - HTML & CSS</title>
+        <link rel="stylesheet" href="style.css">            
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    </head>
+
+    <body>
+        <div class="introduction">
+            <h1 style="color: aliceblue;">Welcome To My Resume Page</h1>
+            <p>Explore my Qualifications and experience <a href="index.html">here</a></p>
+            <p>Number of Visits to this Site: <span id="visitors" style="color: aliceblue;"></span></p>
+
+        </div>
+        
+        <script>
+            // GET API REQUEST
+            async function get_visitors() {
+                // call post api request function
+                //await post_visitor();
+                try {
+                    let response = await fetch("https://anfnvdl7c5.execute-api.us-east-1.amazonaws.com/test", {
+                        method: 'GET',
+                        headers: {
+                            //'x-api-key': 'JslbDfdt1F8fl7wE4CRIj1Oqidmtmzqw4lZ539Sj',
+                        }
+                    });
+                    let data = await response.json()
+                 
+                    
+                    document.getElementById("visitors").innerHTML = JSON.stringify(JSON.parse(data.count)) + " visits.";
+                    //console.log(JSON.parse(data.count));
+                    return data;
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+
+
+            get_visitors();
+        </script>
+        
+    </body>
+    
+    
+</html>

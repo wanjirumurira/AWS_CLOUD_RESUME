@@ -1,0 +1,79 @@
+body{
+    background: grey;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+a{
+    color:  aliceblue;
+}
+
+.container{
+    width: 100%;
+    max-width: 1000px;
+    min-height: 100px;
+    box-sizing: border-box;
+    background-color: white;  
+}
+
+.introduction{
+    margin: auto;
+    width: 50%;
+    border: 3px ;
+    padding: 10px;
+    border-style: ridge;   
+}
+
+.aws-badges {
+    width: 10px; /* Adjust the width as needed */
+    height: 10px; /* Adjust the height as needed */
+}
+
+.contact{
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+    border-style: ridge;
+    background-color: #708090;
+    border-block-width: 10px;
+    color: aliceblue;
+}
+
+.name{
+    font-size: larger;
+    text-align: center;
+    font-weight: bolder;   
+}
+
+.email{
+    font-size: medium;
+    text-align: center;
+    font-weight: bolder
+}
+
+.contact-info{
+    font-size: medium;
+    text-align: center;
+    font-weight: bolder
+}
+
+.info-section{
+    margin: 20px;
+}
+
+.section-skills{
+    display: flex;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
