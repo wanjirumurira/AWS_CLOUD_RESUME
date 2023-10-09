@@ -28,19 +28,16 @@ def lambda_handler(event, context):
 
     # Response dictionary
     response_data = {
-        "statusCode": 200,
-        "headers": {
-            "Access-Control-Allow-Headers" : "Content-Type",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-        },
-        "body": json.dumps({
-            "message": "Hello! This page has been visited {} times.".format(visit_count),
-            "count": visit_count
-        }),
-        "headers": {
-            "Content-Type": "application/json"
-        }
-    }
+    "statusCode": 200,
+    "headers": {
+        'Access-Control-Allow-Origin': '*',
+        "Content-Type": "application/json"
+    },
+    "body": json.dumps({
+        "message": "Hello! This page has been visited {} times.".format(visit_count),
+        "count": visit_count
+    })
+}   
 
     return response_data
+   

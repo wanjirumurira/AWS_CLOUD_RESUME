@@ -22,7 +22,7 @@
                 // call post api request function
                 //await post_visitor();
                 try {
-                    let response = await fetch("https://anfnvdl7c5.execute-api.us-east-1.amazonaws.com/test", {
+                    let response = await fetch("https://ej49ej0fn8.execute-api.us-east-1.amazonaws.com/test/visitor", {
                         
                         method: 'GET',
                         headers: {
@@ -30,9 +30,9 @@
                         }
                     });
                     let data = await response.json()
-                 
-                    
-                    document.getElementById("visitors").innerHTML = JSON.stringify(JSON.parse(data.count)) + " visits.";
+                    const bodyObj = JSON.parse(data.body)
+                    const count = bodyObj.count                    
+                    document.getElementById("visitors").innerHTML = count + " visits.";
                     //console.log(JSON.parse(data.count));
                     return data;
                 } catch (err) {
