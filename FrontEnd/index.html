@@ -1,148 +1,128 @@
 <!DOCTYPE html>
-<html lang= 'en'>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>wanjiru Resume - HTML & CSS</title>
-        <link rel="stylesheet" href="style.css">
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<html>
+	<head>
+		<title>Wanjiru Murira - Resume</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" type="text/css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" type="text/css"/>
+		<script type="text/javascript" src="get_apis.js" defer></script>
+	</head>
 
-    </head>
-    <body>
-        
-        <div class="container">
+	<body>
+		<div id="container">
+			<div id="sidebar">
+				
+				<p id="name">Monicah Murira<br></p>
+                <div id="sidepanel-section-title">
+                    <hr width="100%">
+				<div id="sidepanel-section-title">Reach me here<br>
+					<a href="#" class="cryptedmail"
+						data-name="wanjiru"
+						data-surname="murira"
+						data-domain="gmail"
+						data-tld="com"
+						onclick="window.location.href = 'mailto:' + this.dataset.name  + this.dataset.surname + '@' + this.dataset.domain + this.dataset.tld; return false;">
+					</a>
+				</div>
+					<a href="https://www.linkedin.com/in/wanjiru-murira " class="link" target="_blank">
+						<img id="social-thumbnail" src="linkedin.png" alt="LinkedIn">
+					</a>
+					&nbsp;
+					<a href="https://github.com/wanjirumurira" class="link" target="_blank">
+						<img id="social-thumbnail" src="github.png" alt="GitHub">
+					</a>
+				</div>
+				<hr width="100%">
+                
+				<div id="skills">
+                    <p style="display:inline;">Skills</p>
+                    <br>
 
+                    <li>Python(Django)</li>
+					<li>MySQL/PostgreSQL</li>
+                    <li>IaC Tools(Terraform)</li>
+                    <li>Linux/Unix system</li>
+                    <li>Cloud Computing(AWS)</li>
+                    <li>APIs</li>
+                    <li>CI/CD</li>
+                    <li>Docker & Kubernetes</li>
+				</div>
+				<hr width="100%">
+				<div id="sidepanel-section-title">Certifications<br>
+					<a href="https://www.credly.com/badges/60d6e1f8-ead0-48f9-9935-db453903eace" class="link" target="_blank">
+						<img id="cert-thumbnail" src="AWS-SolArchitect-Associate.png" alt="AWS Certified Solutions Architect Associate">
+					</a>
+					<a href="https://www.credly.com/badges/bbf49bbe-4e97-4344-a3ce-162916e551bb/linked_in_profile" class="link" target="_blank">
+						<img id="cert-thumbnail" src="AWS-Certified-Cloud.png" alt="AWS Certified Developer Associate">
+					</a>
+					
+				</div>
 
-            <div class="contact">
-             
-                <ul>
-                    <p class="name">MURIRA MONICAH WANJIRU</p>
-                    <p class="email">wanjirumurira@gmail.com</p>
-                    <p class="contact-info"><a href="https://www.linkedin.com/in/wanjiru-murira">https://www.linkedin.com/in/wanjiru-murira</a>|+254791604280| <a href="https://github.com/wanjirumurira">https://github.com/wanjirumurira</a></p>
-                </ul>
+                <hr width="100%">
+                <div id="skills">
+                    <p style="display:inline;">Hobies</p>
+                    <br>
+
+                    <li>Hiking</li>
+					<li>Reading Novels</li>
+                    <li>Participating in Community Outreach Programs</li>
+                    <li>Watching Documentaries </li>
                     
-                
-            </div>
-
-            <div class="info-section">
-                <section>
-                    <div class ="skills">
-                        <h3>SKILLS</h3>
-                        <div class="section-skills">
-                            <ul class="first-section">
-                                <Li>Python(Django)</Li>
-                                <Li>Java</Li>
-                                <Li>Databases(MySQL/PostgreSQL)</Li>
-                            </ul>
-        
-                            <ul class="second-section">
-                                <Li>Cloud Computing(AWS)</Li>
-                                <Li>Version Control(GitHub)</Li>
-                                <Li>APIs</Li>
-                            </ul>
-        
-                            <ul class="third-section">
-                                <Li> HTML/CSS</Li>
-                                <li>Linux</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="summary">
-                        <h3>SUMMARY</h3>
-                        <P>A self-taught software engineer with an interest in cloud computing. I&#8217m looking for a position where I can bring my 
-                            skills to an intelligent team that fosters a space for communication and growth. </P>
-        
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="experience">
-                        <h3>WORK EXPERIENCE </h3>
-                        <div class="first-work">
-                            <b><i>KRA Intern | December 2022 &#45; Present</i></b>
-                            <ul>
-                                <li>Diagnosing the source of users&#8217; IT problems.</li>
-                                <li>Escalating complex problems and making users aware of the impact of this.</li>
-                                <li>Installing and Configuring computer hardware, software, systems, networks, printers and scanners.</li>                     </li>
-                                <li>Planning and undertaking scheduled maintenance upgrades.</li>
-                                <li>Managing stocks of equipment, components and other supplies</li>
-                            </ul>
-                        </div>
-        
-                        <div class="second-work">
-                            <b><i>Safaricom PLC Intern | August 2019 &#45; November 2019</i></b>
-                            <ul>
-                                <li>Taking ownership of internal user issues reported and seeing problems through to resolution.</li>
-                                <li>Researching, diagnosing, troubleshooting and identifying solutions to resolve system issues.</li>
-                                <li>Following standard procedures for proper escalation of unresolved issues to the appropriate internal teams.</li>
-                                <li>Resolving network issues, configuring operating systems and using remote desktop connections to provide immediate support.</li>
-                                <li>Diagnose and troubleshoot technical issues, including account setup and network configuration.</li>
-                            </ul>
-                            
-                        </div>
-        
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="projects">
-                        <h3>RECENT TECHNICAL PROJECTS</h3>
-                        <ul>
-                            <li> Issue Tracker (Python/Django/HTML/CSS) <br>
-                                An issue tracker is a software tool that helps individuals and teams track and manage issues or bugs that arise 
-                                during software development or other projects. The purpose of this issue tracker is to provide a centralized 
-                                location for recording, tracking, and resolving issues, which can help ensure that they are addressed in a timely 
-                                and efficient manner.</li>
-                            <li> 
-                                AWS Cloud Challenge <br>
-    
-                                I'm working on it now
-    
-                            </li>
-                        </ul>
-        
-                    </div>
-                </section>
-             
-                <section>
-                    <div class="education">
-                        <h3>EDUCATION</h3>
-                        <ul>
-                            <li>Jomo Kenyatta University of Agriculture and Technology | Second class honors (Upper Division) | 2016 &#45; 2022 <br>
-                                Bachelor of Science in Electrical and Electronics Engineering </li>
-                        </ul>   
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="development">
-                        <h3>PERSONAL DEVELOPMENT</h3>
-                        <ul>
-                            <a style="color: black;" href="https://www.credly.com/badges/60d6e1f8-ead0-48f9-9935-db453903eace"><li>AWS Certified Solutions Architect </li></a>
-                            <a  style="color: black;" href="https://www.credly.com/badges/bbf49bbe-4e97-4344-a3ce-162916e551bb/linked_in_profile"><li>AWS Certified Cloud Practioner</li></a>
-                        </ul>
-                       
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="hobbies">
-                        <p>
-                            <h3>HOBIES:</h3> Hiking, Reading Novels, Participating in Community Outreach Programs, Watching Documentaries 
-                        </p>
-                    </div>
-        
-                </section>
-                
-            </div>
-
-
-            </div>
-
+				</div>
             
 
-    </body>
-        
+				
+				
+			</div>
+			<div id="info-pages">
+				<div class="page">
+					<p>&nbsp;&nbsp;&nbsp;WORK EXPERIENCE</p>
+					<ul>
+						<p class="tag">Kenya Revenue Authority - KRA<br><span>IT SUPPORT | <span>December 2022 – Present</span></span></p>
+						<ul>
+							<li>Provided first-level and second-level support to end-users, resolving hardware and software issues promptly.</li>
+							<li>Maintained and configured computer hardware, including desktops, laptops, printers, scanners, and peripherals, performing routine maintenance and repairs.</li>
+							<li>Installed, updated, and maintained software applications, operating systems, and antivirus programs on users' devices, ensuring compliance and security.</li>
+							<li>Assisted with network administration tasks, such as setting up and configuring network devices, troubleshooting connectivity issues, and ensuring network security.</li>
+                            <br>
+						</ul>
+						<p class="tag">Safaricom<br><span>IT Support Intern | <span>August 2019-November 2019 </span></span></p>
+						<ul>
+							<li>Took ownership of internal user issues reported and saw problems through to resolution.</li>
+							<li>Researched, diagnosed, and troubleshot system issues, identifying solutions to resolve them.</li>
+							<li>Followed standard procedures for proper escalation of unresolved issues to the appropriate internal teams.</li>
+							<li>AResolved network issues, configured operating systems, and used remote desktop connections to provide immediate support.</li>
+							<li>Diagnosed and troubleshot technical issues, including account setup and network configuration.</li>
+							<br>
+						</ul>
+						
+					</ul>
+				</div>
+				<div class="page">
+					<p>&nbsp;&nbsp;&nbsp;RECENT TECHNICAL PROJECTS  </p>
+					<ul>
+						<p class="tag">Issue Tracker</p>
+						<ul>
+                            <li>The issue tracker is a software tool designed to help individuals and teams track and manage 
+                                issues or bugs that arise during software development or other projects. 
+                                The purpose of this issue tracker is to provide a centralized location for recording, 
+                                tracking, and resolving issues, which can help ensure that they are addressed in a timely and efficient manner.
+                            </li>
+                            
+						</ul>
+						<p class="tag">Cloud Resume Challenge(AWS)</p>
+						<ul>
+							<li>
+                                This project involves hosting a static website in an S3 bucket via Amazon CloudFront distribution. 
+                                The static website is then connected to a Lambda function through AWS API Gateway. 
+                                Whenever a user accesses the static website hosted on S3, the Lambda function is triggered, and it writes the count of website visits to a DynamoDB table. 
+                                This project aims to track and record user visits to the website for analytics and monitoring purposes.
+                            </li>
+						</ul>
+					</ul>
+				</div>
+				<!-- <p class="counter">This page has been visited <a id="count"></a> times.</p> -->
+			</div>
+		</div>
+	</body>
 </html>

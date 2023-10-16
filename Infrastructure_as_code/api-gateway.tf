@@ -26,10 +26,6 @@ resource "aws_api_gateway_integration" "lambda" {
   integration_http_method = "POST"
   type = "AWS_PROXY"
   uri = aws_lambda_function.visitor_function.invoke_arn
-  # passthrough_behavior = "WHEN_NO_MATCH"
-  # request_templates = {
-  #   "application/json" : "{\"statusCode\": 200}"
-  # }
 }
 
 # resource "aws_api_gateway_method" "proxy_root" {

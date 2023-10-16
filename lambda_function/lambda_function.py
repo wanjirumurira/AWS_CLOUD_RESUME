@@ -37,7 +37,6 @@ def lambda_handler(event, context):
         "message": "Hello! This page has been visited {} times.".format(visit_count),
         "count": visit_count
     })
-}   
+   }   
 
     return response_data
-   
