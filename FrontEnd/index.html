@@ -120,8 +120,38 @@
 						</ul>
 					</ul>
 				</div>
+
+                <p>Number of Visits to this Site: <span id="visitors" style="color: blue;"></span></p>
+
 				<!-- <p class="counter">This page has been visited <a id="count"></a> times.</p> -->
 			</div>
 		</div>
+        <script>
+            // GET API REQUEST
+            async function get_visitors() {
+                // call post api request function
+                //await post_visitor();
+                try {
+                    let response = await fetch("https://ej49ej0fn8.execute-api.us-east-1.amazonaws.com/test/visitor", {
+                        
+                        method: 'GET',
+                        headers: {
+                            //'x-api-key': 'JslbDfdt1F8fl7wE4CRIj1Oqidmtmzqw4lZ539Sj',
+                        }
+                    });
+                    let data = await response.json()
+                    const bodyObj = JSON.parse(data.body)
+                    const count = bodyObj.count                    
+                    document.getElementById("visitors").innerHTML = count + " visits.";
+                    //console.log(JSON.parse(data.count));
+                    return data;
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+
+
+            get_visitors();
+        </script>
 	</body>
 </html>
