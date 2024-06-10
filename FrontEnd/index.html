@@ -1,148 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Wanjiru Murira - Resume</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" type="text/css"/>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" type="text/css"/>
-	</head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>wanjiru Resume - HTML & CSS</title>
+        <link rel="stylesheet" href="style.css">            
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
-	<body>
-		<div id="container">
-			<div id="sidebar">
-				
-				<p id="name">Monicah Murira<br></p>
-                <div id="sidepanel-section-title">
-                    <hr width="100%">
-				<div id="sidepanel-section-title">Reach me here<br>
-					<a href="#" class="cryptedmail"
-						data-name="wanjiru"
-						data-surname="murira"
-						data-domain="gmail"
-						data-tld="com"
-						onclick="window.location.href = 'mailto:' + this.dataset.name  + this.dataset.surname + '@' + this.dataset.domain + this.dataset.tld; return false;">
-					</a>
-				</div>
-					<a href="https://www.linkedin.com/in/wanjiru-murira " class="link" target="_blank">
-						<img id="social-thumbnail" src="linkedin.png" alt="LinkedIn">
-					</a>
-					&nbsp;
-					<a href="https://github.com/wanjirumurira" class="link" target="_blank">
-						<img id="social-thumbnail" src="github.png" alt="GitHub">
-					</a>
-				</div>
-				<hr width="100%">
-                
-				<div id="skills">
-                    <p style="display:inline;">Skills</p>
-                    <br>
+    </head>
 
-                    <li>Python(Django)</li>
-					<li>MySQL/PostgreSQL</li>
-                    <li>IaC Tools(Terraform)</li>
-                    <li>Linux/Unix system</li>
-                    <li>Cloud Computing(AWS)</li>
-                    <li>Ansible</li>
-                    <li>Jenkins</li>
-                    <li>Docker & Kubernetes</li>
-				</div>
-				<hr width="100%">
-				<div id="sidepanel-section-title">Certifications<br>
-					<a href="https://www.credly.com/badges/60d6e1f8-ead0-48f9-9935-db453903eace" class="link" target="_blank">
-						<img id="cert-thumbnail" src="AWS-SolArchitect-Associate.png" alt="AWS Certified Solutions Architect Associate">
-					</a>
-					<a href="https://www.credly.com/badges/bbf49bbe-4e97-4344-a3ce-162916e551bb/linked_in_profile" class="link" target="_blank">
-						<img id="cert-thumbnail" src="AWS-Certified-Cloud.png" alt="AWS Certified Developer Associate">
-					</a>
-					
-				</div>
+    <body>
+        <div class="introduction">
+            <h1 style="color: aliceblue;">Welcome To My Resume Page</h1>
+            <p>Explore my Qualifications and experience <a href="index.html">here</a></p>
+            <p>Number of Visits to this Site: <span id="visitors" style="color: aliceblue;"></span></p>
 
-                <hr width="100%">
-                <div id="skills">
-                    <p style="display:inline;">Hobies</p>
-                    <br>
-
-                    <li>Hiking</li>
-					<li>Reading Novels</li>
-                    <li>Participating in Community Outreach Programs</li>
-                    <li>Watching Documentaries </li>
-                    
-				</div>
-            
-
-				
-				
-			</div>
-			<div id="info-pages">
-				<div class="page">
-					<p>&nbsp;&nbsp;&nbsp;WORK EXPERIENCE</p>
-					<ul>
-						<p class="tag">Kenya Revenue Authority - KRA<br><span>IT SUPPORT | <span>December 2022-Present</span></span></p>
-						<ul>
-							<li>Provided first-level and second-level support to end-users, resolving hardware and software issues promptly.</li>
-							<li>Maintained and configured computer hardware, including desktops, laptops, printers, scanners, and peripherals, performing routine maintenance and repairs.</li>
-							<li>Installed, updated, and maintained software applications, operating systems, and antivirus programs on users' devices, ensuring compliance and security.</li>
-							<li>Assisted with network administration tasks, such as setting up and configuring network devices, troubleshooting connectivity issues, and ensuring network security.</li>
-                            <br>
-						</ul>
-						<p class="tag">Safaricom<br><span>IT Support Intern | <span>August 2019-November 2019 </span></span></p>
-						<ul>
-							<li>Took ownership of internal user issues reported and saw problems through to resolution.</li>
-							<li>Researched, diagnosed, and troubleshot system issues, identifying solutions to resolve them.</li>
-							<li>Followed standard procedures for proper escalation of unresolved issues to the appropriate internal teams.</li>
-							<li>AResolved network issues, configured operating systems, and used remote desktop connections to provide immediate support.</li>
-							<li>Diagnosed and troubleshot technical issues, including account setup and network configuration.</li>
-							<br>
-						</ul>
-						
-					</ul>
-				</div>
-				<div class="page">
-					<p>&nbsp;&nbsp;&nbsp;RECENT TECHNICAL PROJECTS  </p>
-					<ul>
-						<p class="tag">Issue Tracker</p>
-						<ul>
-                            <li>The issue tracker is a software tool designed to help individuals and teams track and manage 
-                                issues or bugs that arise during software development or other projects. 
-                                The purpose of this issue tracker is to provide a centralized location for recording, 
-                                tracking, and resolving issues, which can help ensure that they are addressed in a timely and efficient manner.
-                            </li>
-                            
-						</ul>
-						<p class="tag">Cloud Resume Challenge(AWS)</p>
-						<ul>
-							<li>
-                                This project involves hosting a static website in an S3 bucket via Amazon CloudFront distribution. 
-                                The static website is then connected to a Lambda function through AWS API Gateway. 
-                                Whenever a user accesses the static website hosted on S3, the Lambda function is triggered, and it writes the count of website visits to a DynamoDB table. 
-                                This project aims to track and record user visits to the website for analytics and monitoring purposes.
-                            </li>
-						</ul>
-					</ul>
-				</div>
-
-                <p>Number of Visits to this Site: <span id="visitors" style="color: blue;"></span></p>
-
-				<!-- <p class="counter">This page has been visited <a id="count"></a> times.</p> -->
-			</div>
-		</div>
+        </div>
+        
         <script>
             // GET API REQUEST
             async function get_visitors() {
                 // call post api request function
                 //await post_visitor();
                 try {
-                    let response = await fetch("https://ej49ej0fn8.execute-api.us-east-1.amazonaws.com/test/visitor", {
-                        
+                    let response = await fetch('https://a06ho89501.execute-api.us-west-1.amazonaws.com/test', {
                         method: 'GET',
                         headers: {
                             //'x-api-key': 'JslbDfdt1F8fl7wE4CRIj1Oqidmtmzqw4lZ539Sj',
                         }
                     });
                     let data = await response.json()
-                    const bodyObj = JSON.parse(data.body)
-                    const count = bodyObj.count                    
-                    document.getElementById("visitors").innerHTML = count + " visits.";
+                 
+                    
+                    document.getElementById("visitors").innerHTML = JSON.stringify(JSON.parse(data.count)) + " visits.";
                     //console.log(JSON.parse(data.count));
                     return data;
                 } catch (err) {
@@ -153,5 +42,8 @@
 
             get_visitors();
         </script>
-	</body>
+        
+    </body>
+    
+    
 </html>
